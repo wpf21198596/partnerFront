@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>合同管理系统</title>
+    <link rel="stylesheet" href="/js/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/js/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-success">
+                <div class="panel-heading" style="text-align: center">
+                    <span class="panel-title">登陆</span>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" id="form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <label class="col-sm-2 control-label">账号</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" placeholder="请输入账号" id="account" name="account">
+                            </div>
+                            <div class="col-sm-4">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <label class="col-sm-2 control-label">密码</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" placeholder="请输入密码" id="password" name="password">
+                            </div>
+                            <div class="col-sm-4">
+                            </div>
+                        </div>
+                        <div class="form-group" style="text-align: center">
+                            <button class="btn btn-info btn-sm" style="text-align: center">登陆1</button>
+                            <input type="button" class="btn btn-info btn-sm" value="登陆2">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/jquery.validate.min.js"></script>
+<script>
+    function validate(){
+        $( "#form" ).validate({
+            rules: {
+                account: "required",
+                password: {
+                    required: true,
+                    minlength: 6,
+                }
+            },
+            messages: {
+                account: "",
+                password: {
+                    required: "",
+                    minlength: ""
+                },
+            },
+            errorPlacement: function ( error, element ) {
+                error.addClass( "help-block" );
+                element.parents().addClass( "has-feedback" );
+                error.insertAfter( element );
+                error.appendTo ( element.parent().next() );
+                $( "<span class='glyphicon glyphicon-remove form-control-feedback'></span>" ).insertAfter( element );
+            },
+            success: function ( label, element ) {
+                if ( !$( element ).next( "span" )[ 0 ] ) {
+                    $( "<span class='glyphicon glyphicon-ok form-control-feedback'></span>" ).insertAfter( $( element ) );
+                }
+            },
+            errorElement: "em",
+            highlight: function ( element, errorClass, validClass ) {
+                $( element ).parents().addClass( "has-error" ).removeClass( "has-success" );
+                $( element ).next( "span" ).addClass( "glyphicon-remove" ).removeClass( "glyphicon-ok" );
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $( element ).parents().addClass( "has-success" ).removeClass( "has-error" );
+                $( element ).next( "span" ).addClass( "glyphicon-ok" ).removeClass( "glyphicon-remove" );
+            },
+            submitHandler: function () {
+                alert( "submitted!" );
+            }
+        })
+    }
+    $(function () {
+        $( "#form" ).validate({
+            rules: {
+                account: "required",
+                password: {
+                    required: true,
+                    minlength: 6,
+                }
+            },
+            messages: {
+                account: "",
+                password: {
+                    required: "",
+                    minlength: ""
+                },
+            },
+            errorPlacement: function ( error, element ) {
+                error.addClass( "help-block" );
+                element.parents().addClass( "has-feedback" );
+                error.insertAfter( element );
+                error.appendTo ( element.parent().next() );
+                $( "<span class='glyphicon glyphicon-remove form-control-feedback'></span>" ).insertAfter( element );
+            },
+            success: function ( label, element ) {
+                if ( !$( element ).next( "span" )[ 0 ] ) {
+                    $( "<span class='glyphicon glyphicon-ok form-control-feedback'></span>" ).insertAfter( $( element ) );
+                }
+            },
+            errorElement: "em",
+            highlight: function ( element, errorClass, validClass ) {
+                $( element ).parents().addClass( "has-error" ).removeClass( "has-success" );
+                $( element ).next( "span" ).addClass( "glyphicon-remove" ).removeClass( "glyphicon-ok" );
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $( element ).parents().addClass( "has-success" ).removeClass( "has-error" );
+                $( element ).next( "span" ).addClass( "glyphicon-ok" ).removeClass( "glyphicon-remove" );
+            },
+            submitHandler: function () {
+                alert( "submitted!" );
+            }
+        })
+    })
+</script>
+</body>
+</html>
